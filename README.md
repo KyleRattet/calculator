@@ -33,7 +33,7 @@ A spreadsheet-like application. Built with TypeScript, React, and Express.
 1. Clone the repository:
 
 ```bash
-git clone KyleRattet/calculator
+git clone https://github.com/KyleRattet/calculator.git
 ```
 
 2. Start the application:

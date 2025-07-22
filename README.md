@@ -111,7 +111,7 @@ The application detects and displays:
 ### Base URL
 
 ```
-http://localhost:3001/api
+http://localhost:3000/api
 ```
 
 ### Endpoints
@@ -244,33 +244,6 @@ services:
   - `FormulaParser.ts` - Stateless utility for parsing and evaluating spreadsheet formulas
   - `EvaluationService.ts` - Business logic layer for grid operations and API interactions
 
-### Key Technical Improvements
-
-#### 1. Real-time Evaluation Engine
-
-- **Auto-evaluation**: Cells evaluate immediately after editing
-- **Dependency tracking**: Smart resolution of formula dependencies
-- **Performance optimization**: Efficient re-calculation of only affected cells
-
-#### 2. Enhanced Grid Management
-
-- **Dynamic sizing**: Add/remove rows and columns safely
-- **Reference updating**: Formulas automatically adjust when grid structure changes
-- **Boundary protection**: Prevents deletion of last row/column
-
-#### 3. Professional UI/UX
-
-- **Healthcare-focused design**: Medical industry color scheme and layout
-- **Responsive layout**: Centered content with proper scaling
-- **Horizontal scrolling**: Handles large grids with sticky headers
-- **Accessibility**: High contrast colors and clear visual hierarchy
-
-#### 4. Advanced Error Handling
-
-- **Comprehensive error detection**: Multiple error types with specific messages
-- **Visual error indicators**: Clear highlighting of problematic cells
-- **Recovery guidance**: Helpful error messages with resolution hints
-
 ## Testing
 
 ### Manual Testing Scenarios
@@ -317,44 +290,10 @@ Step 7: Change A1 to: 20         → Watch C1→2000, A2→1000, C2→150000
 
 ### Environment Variables
 
-- `PORT`: Server port (default: 3001)
+- `PORT`: Server port (default: 3000)
 - `NODE_ENV`: Environment (development/production)
-- `VITE_API_URL`: Frontend API URL (default: http://localhost:3001)
-
-### Production Build
-
-1. Build the frontend:
-
-```bash
-cd frontend
-npm run build
-```
-
-2. Build the backend:
-
-```bash
-cd backend
-npm run build
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes following the established patterns
-4. Test both real-time evaluation and grid management features
-5. Submit a pull request
+- `VITE_API_URL`: Frontend API URL (default: http://localhost:3000)
 
 ## License
 
 MIT License - see LICENSE file for details.
-
-## Support
-
-For issues and questions:
-
-1. Check that both frontend (3000) and backend (3001) are running
-2. Verify auto-evaluation is working by testing simple formulas
-3. Review error messages in the UI - they're designed to be helpful
-4. Check browser console for additional debugging information
-5. Open an issue on the project repository

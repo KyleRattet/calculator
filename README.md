@@ -222,14 +222,14 @@ services:
       context: ./frontend
     container_name: pc_frontend
     ports:
-      - '3000:3000'
+      - '3001:3001'
   backend:
     build:
       dockerfile: Dockerfile
       context: ./backend
     container_name: pc_backend
     ports:
-      - '3001:3001'
+      - '3000:3000'
 ```
 
 ### Architecture Overview

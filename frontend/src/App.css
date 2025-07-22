@@ -1,0 +1,627 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+/* App Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #2c7da0 0%, #014f73 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.app-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.app-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.app-main > * {
+  width: 100%;
+  min-width: 75%;
+  max-width: 75%;
+}
+
+.app-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  width: 100%;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Loading States */
+.app-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.loading-spinner {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Error States */
+.app-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 2rem;
+}
+
+.app-error h2 {
+  color: #e76f51;
+  margin-bottom: 1rem;
+}
+
+.app-error-banner {
+  background-color: #fff3e0;
+  border: 1px solid #ffcc9a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dismiss-error {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Button Styles */
+.primary-button {
+  background: linear-gradient(135deg, #2c7da0 0%, #014f73 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 125, 160, 0.4);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary-button {
+  background-color: white;
+  color: #2c7da0;
+  border: 1px solid #2c7da0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+  background-color: #f0f8fc;
+  border-color: #014f73;
+  color: #014f73;
+}
+
+.retry-button {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.retry-button:hover {
+  background-color: #e55a2b;
+}
+
+/* Grid Container */
+.grid-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.evaluation-status {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.status-success {
+  color: #2a9d8f;
+}
+
+.status-error {
+  color: #e76f51;
+}
+
+.add-button {
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background-color: #21867a;
+}
+
+/* Grid Table */
+.grid-wrapper {
+  overflow: auto;
+  max-height: 70vh;
+  width: 100%;
+  border: 1px solid #e9ecef;
+  border-radius: 0 0 8px 8px;
+}
+
+.grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 600px; /* Ensures minimum width for proper layout */
+}
+
+.grid-table th,
+.grid-table td {
+  border: 1px solid #ddd;
+  min-width: 120px;
+  width: 120px;
+  height: 40px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Headers */
+.corner-cell {
+  background-color: #e8f4f8;
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
+  text-align: center;
+  position: sticky;
+  left: 0;
+  z-index: 20;
+}
+
+.column-header,
+.row-header {
+  background-color: #e8f4f8;
+  font-weight: 600;
+  color: #014f73;
+  position: sticky;
+  z-index: 10;
+}
+
+.column-header {
+  top: 0;
+  text-align: center;
+  padding: 0.5rem;
+  z-index: 15;
+}
+
+.row-header {
+  left: 0;
+  text-align: center;
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
+  padding: 0.5rem;
+  background-color: #e8f4f8;
+  z-index: 20;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.header-content {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.header-content:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.header-input {
+  width: 100%;
+  border: none;
+  background: white;
+  padding: 0.25rem;
+  border-radius: 3px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.delete-button {
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background-color: #d1603f;
+}
+
+.delete-button:active {
+  transform: scale(0.95);
+}
+
+.add-column-cell,
+.add-column-placeholder {
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
+  text-align: center;
+  background-color: #f5fafc;
+}
+
+/* Cell Styles */
+.cell {
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  overflow: hidden;
+}
+
+.cell:hover {
+  background-color: #f8f9fa;
+}
+
+.cell-content {
+  padding: 0.5rem;
+  min-height: 24px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cell-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0.5rem;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: white;
+  border: 2px solid #667eea;
+}
+
+.cell-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 1px #667eea;
+}
+
+/* Cell Type Styles */
+.cell-formula {
+  background-color: #e8f4fd;
+}
+
+.cell-formula:hover {
+  background-color: #d4edfd;
+}
+
+.cell-number .cell-content {
+  text-align: right;
+  font-weight: 500;
+}
+
+.cell-error {
+  background-color: #ffeaa7;
+  color: #d63031;
+}
+
+.cell-error .cell-content {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.cell-editing {
+  background-color: white;
+}
+
+/* Error Display */
+.error-display {
+  background-color: #fff8f5;
+  border: 1px solid #ffcc9a;
+  border-radius: 6px;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.error-header {
+  background-color: #ffe0cc;
+  padding: 1rem;
+  border-bottom: 1px solid #ffcc9a;
+}
+
+.error-header h3 {
+  margin: 0;
+  color: #d35f2a;
+  font-size: 1.1rem;
+}
+
+.error-content {
+  padding: 1rem;
+}
+
+.error-section {
+  margin-bottom: 1.5rem;
+}
+
+.error-section:last-child {
+  margin-bottom: 0;
+}
+
+.error-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #d35f2a;
+  font-size: 1rem;
+}
+
+.error-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.error-item {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  background-color: white;
+  border-left: 4px solid #e76f51;
+}
+
+.error-help {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+.error-actions {
+  padding: 1rem;
+  border-top: 1px solid #ffcc9a;
+  background-color: #ffe0cc;
+}
+
+.dismiss-button {
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dismiss-button:hover {
+  background-color: #d1603f;
+}
+
+/* Instructions */
+.instructions {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.instructions h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.instructions ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.instructions li {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.instructions strong {
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .app-main > * {
+    min-width: 85%;
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  .app-main {
+    padding: 1rem;
+  }
+  
+  .app-main > * {
+    min-width: 95%;
+    max-width: 95%;
+  }
+  
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .grid-table {
+    font-size: 0.8rem;
+  }
+  
+  .grid-table th,
+  .grid-table td {
+    min-width: 100px;
+    width: 100px;
+    height: 36px;
+  }
+  
+  .corner-cell,
+  .row-header,
+  .add-column-cell,
+  .add-column-placeholder {
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+  }
+  
+  .instructions {
+    padding: 1rem;
+  }
+  
+  .instructions ul {
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-main > * {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  .grid-table th,
+  .grid-table td {
+    min-width: 80px;
+    width: 80px;
+  }
+}

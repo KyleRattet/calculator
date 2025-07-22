@@ -1,0 +1,21 @@
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    container_name: pc_frontend
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
+    ports:
+      - '3001:3001'
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    container_name: pc_backend
+    volumes:
+      - ./backend:/backend
+      - /backend/node_modules
+    ports:
+      - '3000:3000'
